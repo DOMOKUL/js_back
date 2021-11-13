@@ -4,7 +4,6 @@ const { initDB } = require('./database/database');
 const todoRouter = require('./routes/todoRouter.js');
 
 const app = express();
-require('dotenv').config();
 
 initDB();
 
