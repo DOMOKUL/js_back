@@ -1,0 +1,1 @@
+https://docs.google.com/document/d/1AZLQWzLB9PVqhoUuSdU37dID2CC7RvF1NW3Q6DsmLJA/edit#heading=h.vprkr9j2b9md
