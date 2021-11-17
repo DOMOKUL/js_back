@@ -25,7 +25,7 @@ async function register(req, res, next) {
     //  res.setHeader("token", token.value);
     const newUser = await User.create(req.body);
     res.status(200).json({
-        message: `OK, the new user info:\n${newUser}`,
+        message: `OK, the new user info:${newUser.email}`,
     });
 }
 

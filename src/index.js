@@ -1,6 +1,5 @@
 const express = require('express');
 const http = require('http');
-const cors = require('cors');
 const { initDB } = require('./database');
 const apiTodoRouter = require('./controllers/api-todo.js');
 const apiAuthRouter = require("./controllers/api-auth");

@@ -1,4 +1,5 @@
- const path = require("path");
+ const { appendFile } = require("fs");
+const path = require("path");
  const { Sequelize } = require("sequelize");
 
  const sequelize = new Sequelize({

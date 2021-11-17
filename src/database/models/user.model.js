@@ -8,7 +8,7 @@ class User extends Sequelize.Model {}
 User.init({
     id: {
         type: Sequelize.UUID,
-        defaultValue: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
         primaryKey: true,
     },
     login: {
