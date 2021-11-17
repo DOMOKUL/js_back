@@ -29,10 +29,10 @@ async function getToDos(req, res, next) {
         },
     });
 
-    res.json({ todos });
+    res.json(todos);
 }
 
-async function getToDoById(req, res, next) {
+async function getToDoById(req, res, next) { //Find todo by id from params
     const todo = await ToDo.findOne({
         where: {
             id: req.params.id,

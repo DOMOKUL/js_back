@@ -21,32 +21,35 @@ async function register(req, res, next) {
     if (checkUser) {
         throw new ErrorResponse("This email already in use", 400);
     }
-    //   const token = await Token.create({ userId: checkUser.id, value: nanoid() });
-    //   res.setHeader("token", token.value);
-    const newUser = User.create(req.body);
+    //  const token = await Token.create({ userId: checkUser.id, value: nanoid() });
+    //  res.setHeader("token", token.value);
+    const newUser = await User.create(req.body);
     res.status(200).json({
         message: `OK, the new user info:\n${newUser}`,
     });
 }
 
-async function auth(req, res, next) {
-    checkUser = await User.findOne({
+async function auth(req, res, next) { //Send email and pass
+    //Find user with entered email and pass
+    const checkUser = await User.findOne({
         where: {
             email: req.body.email,
             password: req.body.password,
         },
     });
+
+    //Verification user on DB
     if (!checkUser) {
-        throw ErrorResponse("There is no user with this email", 404);
+        throw new ErrorResponse("There is no user with this email", 404);
     }
-    res.status(200).json({
-        message: "Ok",
-    });
+
+    //If email and pass correct -> create Token in DB and return Token to front
     const token = await Token.create({
         userId: checkUser.id,
         value: nanoid(),
     });
-    //   res.setHeader("token", token.value);
+
+
 
     res.status(200).json({ accessToken: token.value });
 }
